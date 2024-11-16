@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.seninha.CrudCadeia.entities.Work;
 
 @Repository
-public interface WorksRepository extends JpaRepository<Work, Long> {
+public interface WorkRepository extends JpaRepository<Work, Long> {
 
 }
