@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Cela</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Criar Nova Cela</h1>
+
+    <form class="form-mb-5"th:action="@{/cells}" th:object="${cell}" method="post">
+        <div class="mb-3">
+            <label for="cellName" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="cellName" th:field="*{cellName}" required>
+        </div>
+        <div class="mb-3">
+            <label for="maxPrisoners" class="form-label">Máximo de Prisioneiros:</label>
+            <input type="number" class="form-control" id="maxPrisoners" th:field="*{maxPrisoners}" required>
+        </div>
+        <div style=" text-align: right;margin-right: 15%;"><button class="btn btn-primary" type="submit">Salvar</button></div>
+    </form>
+
+    <div style="text-align: right;margin-right: 15%;"><a class="btn btn-primary" href="/cells">Voltar para a lista</a></div>
+</body>
+</html>

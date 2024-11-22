@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Célula</title>
+</head>
+<body>
+    <h1>Editar Célula</h1>
+
+    <form th:action="@{/cells/edit/{id}(id=${cell.cellId})}" th:object="${cell}" method="post">
+        <label for="cellName">Nome:</label>
+        <input type="text" id="cellName" th:field="*{cellName}" required>
+
+        <label for="maxPrisoners">Máximo de Prisioneiros:</label>
+        <input type="number" id="maxPrisoners" th:field="*{maxPrisoners}" required>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a href="/cells">Voltar para a lista</a>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Prisioneiros</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="display: flex; align-items: center;">
+        <a th:href="@{/}"><button type="button" class="btn btn-warning">Voltar</button></a>
+        <h1>Lista de Prisioneiros Regisrados</h1>
+    </div>
+    
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CPF</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Tempo Sentença</th>
+                <th>Cela do Prisioneiro</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="prisoner : ${prisoner}">
+                <td th:text="${prisoner.id}"></td>
+                <td th:text="${prisoner.cpf}"></td>
+                <td th:text="${prisoner.firstName}"></td>
+                <td th:text="${prisoner.lastName}"></td>
+                <td th:text="${prisoner.sentenceDuration}"></td>
+                <td th:text="${prisoner.cell.cellName}"></td>
+                <td class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a th:href="@{/prisoners/edit/{id}(id=${prisoner.id})}"><button type="button" class="btn btn-primary">Editar</button></a>
+                    <a th:href="@{/prisoners/delete/{id}(id=${prisoner.id})}"><button type="button" class="btn btn-danger">Deletar</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+	<div style=" text-align: right;margin-right: 15%;"><a href="/prisoners/new"><button class="btn btn-primary">Novo Prisioneiro</button></a></div>
+</body>
+</html>

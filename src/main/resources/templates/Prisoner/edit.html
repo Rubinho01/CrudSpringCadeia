@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Cela</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Adicionar novo Prisioneiro</h1>
+
+    <form class="form-mb-5"th:action="@{/prisoners/edit/{id}(id=${prisoner.id})}" th:object="${prisoner}" method="post">
+        <div class="mb-3">
+            <label for="prisonerCPF" class="form-label">cpf:</label>
+            <input type="text" class="form-control" id="cpf" th:field="*{cpf}" required>
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="form-label">Primeiro Nome:</label>
+            <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Último Nome:</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
+        </div>
+        <div class="mb-3">
+            <label for="sentenceDuration" class="form-label">Tempo de Sentença:</label>
+            <input type="number" class="form-control" id="sentenceDuration" th:field="*{sentenceDuration}" required>
+        </div>
+        <div class="mb-3">
+            <label for="cell" class="form-label">ID da Cela:</label>
+            <input type="text" class="form-control" id="cell" th:field="*{cell}" required>
+        </div>
+        <div style=" text-align: right;margin-right: 15%;"><button class="btn btn-primary" type="submit">Salvar</button></div>
+    </form>
+
+    <div style="text-align: right;margin-right: 15%;"><a class="btn btn-primary"  href="/prisoners">Voltar para a lista</a></div>
+</body>
+</html>
