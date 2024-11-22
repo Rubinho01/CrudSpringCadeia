@@ -17,6 +17,7 @@ public class WorkServices {
 	
 	public List<Work> findAll() {
 	    return workRepository.findAll();
+	    
 	
 }
 }

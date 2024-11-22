@@ -21,6 +21,16 @@ public class Registration {
 		id.setPrisoner(prisoner);
 		this.registrationDate = registrationDate;
 	}
+	public void reduceSentence() {
+		Prisoner prisoner = id.getPrisoner();
+		Work work = id.getWork();
+		if(prisoner.getSentenceDuration() > 0) {
+			prisoner.setSentenceDuration(0);
+		}else {
+			prisoner.setSentenceDuration(prisoner.getSentenceDuration()-work.getTimeReduction());
+		}
+		
+	}
 
 
 	public RegistrationPK getId() {

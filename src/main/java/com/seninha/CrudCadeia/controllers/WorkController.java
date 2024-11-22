@@ -19,8 +19,8 @@ public class WorkController {
 	  @GetMapping("/works")
 	    public String showWorks(Model model) {
 	        List<Work> works = workServices.findAll();
-	        model.addAttribute("works", works); // Certifique-se de que está passando corretamente
-	        return "all-works"; // Nome do template
+	        model.addAttribute("works", works); 
+	        return "all-works"; 
 	    }
 	
 }
