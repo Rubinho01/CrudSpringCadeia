@@ -19,7 +19,7 @@ public class CellController {
 
     @GetMapping
     public String getAllCells(Model model) {
-        List<Cell> cells = cellService.getAllCells();
+        List<Cell> cells = cellService.findAll();
         model.addAttribute("cells", cells);
         return "cell/list";
     }

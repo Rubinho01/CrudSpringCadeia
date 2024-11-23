@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Criar Registro</title>
+</head>
+<body>
+    <h1>Criar Registro de Trabalho</h1>
+
+    <form th:action="@{/registrations}" method="post">
+        <!-- Campo para selecionar o Trabalho -->
+        <div class="mb-3">
+            <label for="workId" class="form-label">Trabalho:</label>
+            <select id="workId" name="workId" class="form-control" required>
+                <option value="" disabled selected>Selecione um trabalho</option>
+                <option th:each="work : ${works}" th:value="${work.workId}" th:text="${work.workName}"></option>
+            </select>
+        </div>
+
+        <!-- Campo para selecionar o Prisioneiro -->
+        <div class="mb-3">
+            <label for="prisonerId" class="form-label">Prisioneiro:</label>
+            <select id="prisonerId" name="prisonerId" class="form-control" required>
+                <option value="" disabled selected>Selecione um prisioneiro</option>
+                <option th:each="prisoner : ${prisoners}" th:value="${prisoner.id}" th:text="${prisoner.firstName}"></option>
+            </select>
+        </div>
+
+        <!-- Campo para a data de registro -->
+        <div class="mb-3">
+            <label for="registrationDate" class="form-label">Data de Registro:</label>
+            <input type="date" id="registrationDate" name="registrationDate" class="form-control" required />
+        </div>
+
+        <!-- Botão para submeter o formulário -->
+        <button type="submit" class="btn btn-primary">Salvar Registro</button>
+    </form>
+</body>
+</html>

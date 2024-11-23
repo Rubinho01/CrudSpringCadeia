@@ -1,6 +1,8 @@
 package com.seninha.CrudCadeia.entities;
 
 import java.util.Objects;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -8,12 +10,12 @@ import jakarta.persistence.ManyToOne;
 @Embeddable
 public class RegistrationPK {
 
-    @ManyToOne
-    @JoinColumn(name = "work_id", nullable = false)
+	 @ManyToOne(cascade = CascadeType.ALL)
+	 @JoinColumn(name = "work_id", insertable = false, updatable = false)
     private Work work;
 
-    @ManyToOne
-    @JoinColumn(name = "prisoner_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "prisoner_id", insertable = false, updatable = false)
     private Prisoner prisoner;
 
 

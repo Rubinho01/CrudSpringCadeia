@@ -15,22 +15,18 @@ public class CellService {
     @Autowired
     private CellRepository cellRepository;
 
-    // Buscar todas as células
-    public List<Cell> getAllCells() {
+    public List<Cell> findAll() {
         return cellRepository.findAll();
     }
 
-    // Buscar célula por ID
     public Optional<Cell> getCellById(Long id) {
         return cellRepository.findById(id);
     }
 
-    // Salvar ou atualizar célula
     public Cell saveCell(Cell cell) {
         return cellRepository.save(cell);
     }
 
-    // Excluir célula
     public void deleteCell(Long id) {
         cellRepository.deleteById(id);
     }

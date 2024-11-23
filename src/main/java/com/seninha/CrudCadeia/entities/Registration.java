@@ -2,8 +2,10 @@ package com.seninha.CrudCadeia.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,7 +16,14 @@ public class Registration {
 	private RegistrationPK id = new RegistrationPK();
 	private String registrationDate;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Work work;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Prisoner prisoner;
 	
+	public Registration() {
+		
+	}
 	public Registration(Work work,Prisoner prisoner, String registrationDate) {
 		super();
 		id.setWork(work);
@@ -24,7 +33,7 @@ public class Registration {
 	public void reduceSentence() {
 		Prisoner prisoner = id.getPrisoner();
 		Work work = id.getWork();
-		if(prisoner.getSentenceDuration() > 0) {
+		if(prisoner.getSentenceDuration() < 0) {
 			prisoner.setSentenceDuration(0);
 		}else {
 			prisoner.setSentenceDuration(prisoner.getSentenceDuration()-work.getTimeReduction());

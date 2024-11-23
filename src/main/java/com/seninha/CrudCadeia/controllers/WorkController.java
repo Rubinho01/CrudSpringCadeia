@@ -8,13 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.seninha.CrudCadeia.entities.Work;
-import com.seninha.CrudCadeia.services.WorkServices;
+import com.seninha.CrudCadeia.services.WorkService;
 
 @Controller
 public class WorkController {
 	
 	@Autowired
-	private WorkServices workServices;
+	private WorkService workServices;
 	
 	  @GetMapping("/works")
 	    public String showWorks(Model model) {
