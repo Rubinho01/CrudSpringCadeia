@@ -2,21 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Célula</title>
+    <title>Editar Cela</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Editar Célula</h1>
+<body style="background-color: whitesmoke;">
+		<a th:href="@{/cells}"><button type="button" class="btn btn-warning">Voltar</button></a>
+        <h1 style="text-align: center;">Editar Cela</h1>
 
-    <form th:action="@{/cells/edit/{id}(id=${cell.cellId})}" th:object="${cell}" method="post">
-        <label for="cellName">Nome:</label>
-        <input type="text" id="cellName" th:field="*{cellName}" required>
-
-        <label for="maxPrisoners">Máximo de Prisioneiros:</label>
-        <input type="number" id="maxPrisoners" th:field="*{maxPrisoners}" required>
-
-        <button type="submit">Salvar</button>
+    <form class="form-mb-5" th:action="@{/cells/edit/{id}(id=${cell.cellId})}" th:object="${cell}" method="post">
+        <div class="mb-3">
+            <label for="cellName" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="cellName" th:field="*{cellName}" required>
+        </div>
+        <div class="mb-3">
+            <label for="maxPrisoners" class="form-label">Máximo de Prisioneiros:</label>
+            <input type="text" class="form-control" id="maxPrisoners" th:field="*{maxPrisoners}" required>
+        </div>
+        <div style=" text-align: right;margin-right: 15%;"><button class="btn btn-primary" type="submit">Salvar</button></div>
     </form>
 
-    <a href="/cells">Voltar para a lista</a>
+    <div style="text-align: right;margin-right: 15%;"><a class="btn btn-primary"  href="/prisoners">Voltar para a lista</a></div>
 </body>
 </html>

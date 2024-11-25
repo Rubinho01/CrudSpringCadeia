@@ -1,5 +1,7 @@
 package com.seninha.CrudCadeia.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,8 @@ public class RegistrationService {
 		
 		registration.reduceSentence();
 		registrationRepository.save(registration);
+	}
+	public List<Registration> findAll(){
+		return registrationRepository.findAll();
 	}
 }

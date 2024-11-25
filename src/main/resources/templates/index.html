@@ -4,16 +4,26 @@
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <title>Minha Página com Bootstrap</title>
-	  <!-- Link do CSS do Bootstrap -->
+	  <style>
+	          a {
+	              color: white; 
+	              text-decoration: none; 
+	          }
+
+	          a:hover {
+	              color: red;
+	          }
+	      </style>
 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body style="background-color: whitesmoke;">
 	<h1 class="text-center" style="margin-top: 125px;">Bem-vindo ao Sistema Penitenciário!</h1>
 	
-	<div>
-		<a th:href="@{/prisoners}"><button>Prisioneiros</button></a>
-		<a th:href="@{/cells}"><button>Celas</button></a>
-		<a th:href="@{/works}"> Trabalhos Registrados</a>
+	<div class="d-grid gap-2 col-6 mx-auto">
+		 <a href="/prisoners" class="btn btn-primary">Prisioneiros</a>
+		 <a href="/cells" class="btn btn-primary">Celas</a>
+		 <a href="/registrations" class="btn btn-primary">Registros de Trabalho</a>
+		 <a href="/works" class="btn btn-primary">Trabalhos Disponíveis</a>
 	 </div> 
 	
 	  <!-- Script do JavaScript do Bootstrap -->

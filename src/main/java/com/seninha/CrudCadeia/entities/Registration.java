@@ -2,25 +2,20 @@ package com.seninha.CrudCadeia.entities;
 
 import java.util.Objects;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Registrations")
 public class Registration {
 	
+	
 	@EmbeddedId
 	private RegistrationPK id = new RegistrationPK();
 	private String registrationDate;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Work work;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Prisoner prisoner;
-	
+
 	public Registration() {
 		
 	}

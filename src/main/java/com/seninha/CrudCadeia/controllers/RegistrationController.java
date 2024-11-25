@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.seninha.CrudCadeia.entities.Prisoner;
+import com.seninha.CrudCadeia.entities.Registration;
 import com.seninha.CrudCadeia.entities.Work;
 import com.seninha.CrudCadeia.services.PrisonerService;
 import com.seninha.CrudCadeia.services.RegistrationService;
@@ -29,6 +30,13 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
+    @GetMapping
+    public String findAll(Model model) {
+    	List<Registration> registrations =   registrationService.findAll();
+    	model.addAttribute("registrations", registrations);
+    	return "/registration/list";
+    }
+    
     @GetMapping("/new")
     public String saveForm(Model model) {
         List<Work> works = workService.findAll();
@@ -58,11 +66,12 @@ public class RegistrationController {
             registrationService.saveRegistartion(work, prisoner, registrationDate);
 
             redirectAttributes.addFlashAttribute("message", "Registro criado com sucesso!");
-            return "redirect:/registrations/new";
+            return "redirect:/registrations";
 
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/registrations/new";
         }
     }
+    
 }
